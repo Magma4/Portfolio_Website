@@ -1,28 +1,27 @@
 @charset "utf-8";
 /*
-/*	Copyright (c) 2022 Marketify
-/*	Author: Marketify
-/*	This file is made for CURRENT TEMPLATE
+/*	Portfolio Website Stylesheet
+/*	Custom styling for portfolio website
 
 
-01) GRAX BASE
-02) GRAX TOPBAR
-03) GRAX MOBILE MENU
-04) GRAX HERO
-05) GRAX ABOUT
-06) GRAX PORTFOLIO
-07) GRAX TALK
-08) GRAX NEWS
-09) GRAX CONTACT
-10) GRAX COPYRIGHT
-11) GRAX CURSOR
-12) GRAX PARTICLE EFFECT
-13) GRAX GLITCH EFFECT
-14) GRAX MEDIA QUERIES (FOR SMALL DEVIVES)
+01) BASE STYLES
+02) TOPBAR
+03) MOBILE MENU
+04) HERO
+05) ABOUT
+06) PORTFOLIO
+07) TALK
+08) NEWS
+09) CONTACT
+10) COPYRIGHT
+11) CURSOR
+12) PARTICLE EFFECT
+13) GLITCH EFFECT
+14) MEDIA QUERIES (FOR SMALL DEVICES)
 
 
 /*---------------------------------------------------*/
-/*	01) GRAX BASE
+/*	01) BASE STYLES
 /*---------------------------------------------------*/
 
 html {
@@ -287,7 +286,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	02) GRAX TOPBAR
+/*	02) TOPBAR
 /*---------------------------------------------------*/
 
 .grax_tm_topbar {
@@ -379,7 +378,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	03) GRAX MOBILE MENU
+/*	03) MOBILE MENU
 /*---------------------------------------------------*/
 
 .grax_tm_mobile_menu {
@@ -573,7 +572,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	04) GRAX HERO
+/*	04) HERO
 /*---------------------------------------------------*/
 
 .grax_tm_hero {
@@ -830,7 +829,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	05) GRAX ABOUT
+/*	05) ABOUT
 /*---------------------------------------------------*/
 
 .grax_tm_about {
@@ -1107,7 +1106,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	06) GRAX PORTFOLIO
+/*	06) PORTFOLIO
 /*---------------------------------------------------*/
 
 .grax_tm_title_holder {
@@ -1318,7 +1317,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	07) GRAX TALK
+/*	07) TALK
 /*---------------------------------------------------*/
 
 .grax_tm_talk {
@@ -1478,7 +1477,7 @@ h6 {
 }
 
 /*---------------------------------------------------*/
-/*	08) GRAX NEWS
+/*	08) NEWS
 /*---------------------------------------------------*/
 
 .grax_tm_news {
@@ -1842,7 +1841,7 @@ body.modal {
 
 
 /*---------------------------------------------------*/
-/*	09) GRAX CONTACT
+/*	09) CONTACT
 /*---------------------------------------------------*/
 
 .grax_tm_contact {
@@ -2094,7 +2093,7 @@ body.modal {
 }
 
 /*---------------------------------------------------*/
-/*	10) GRAX COPYRIGHT
+/*	10) COPYRIGHT
 /*---------------------------------------------------*/
 
 .grax_tm_copyright {
@@ -2173,7 +2172,7 @@ body.modal {
 }
 
 /*---------------------------------------------------*/
-/*	11) GRAX CURSOR
+/*	11) CURSOR
 /*---------------------------------------------------*/
 
 .mouse-cursor {
@@ -2234,7 +2233,7 @@ body.modal {
 }
 
 /*---------------------------------------------------*/
-/*	12) GRAX PARTICLE EFFECT
+/*	12) PARTICLE EFFECT
 /*---------------------------------------------------*/
 
 .grax_tm_hero .particle_wrapper {
@@ -2252,7 +2251,7 @@ body.modal {
 }
 
 /*---------------------------------------------------*/
-/*	13) GRAX GLITCH EFFECT
+/*	13) GLITCH EFFECT
 /*---------------------------------------------------*/
 
 .grax_tm_hero .glitch_wrap {
@@ -2668,7 +2667,7 @@ body.dark .grax_tm_settings .cursor li .svg,
 }
 
 /*---------------------------------------------------*/
-/*	GRAX INTRO
+/*	INTRO
 /*---------------------------------------------------*/
 
 .grax_tm_intro_hero {
@@ -2894,7 +2893,7 @@ body.dark .grax_tm_settings .cursor li .svg,
 }
 
 /*---------------------------------------------------*/
-/*	14) GRAX MEDIA QUERIES (FOR SMALL DEVIVES)
+/*	14) MEDIA QUERIES (FOR SMALL DEVICES)
 /*---------------------------------------------------*/
 
 @media (max-width: 1400px) {
@@ -3416,7 +3415,7 @@ body.dark .grax_tm_swiper_progress .my_navigation ul li a {
 }
 
 /*---------------------------------------------------*/
-/*	15) GRAX SWIPER SLIDER
+/*	15) SWIPER SLIDER
 /*---------------------------------------------------*/
 
 .grax_tm_portfolio_slider {

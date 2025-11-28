@@ -216,6 +216,14 @@ body.dark .grax_tm_news .list_inner .project_link {
 	display: none;
 }
 
+/* Progressive image shift as screen size reduces */
+@media (max-width: 1040px) {
+	.grax_tm_hero .bg .image {
+		background-position: 60% center !important;
+		transition: background-position 0.3s ease !important;
+	}
+}
+
 @media (max-width: 768px) {
 	.portfolio_item {
 		width: 280px;
@@ -229,6 +237,490 @@ body.dark .grax_tm_news .list_inner .project_link {
 
 	.project_card {
 		padding: 30px;
+	}
+
+	/* Ensure hero background image displays on mobile and shift right */
+	.grax_tm_hero .bg .image {
+		background-size: cover !important;
+		background-position: 70% center !important;
+		background-attachment: scroll !important;
+		background-repeat: no-repeat !important;
+		-webkit-background-size: cover !important;
+		-moz-background-size: cover !important;
+		-o-background-size: cover !important;
+		transition: background-position 0.3s ease !important;
+	}
+}
+
+@media (max-width: 480px) {
+	/* Shift image further to the right on small mobile screens */
+	.grax_tm_hero .bg .image {
+		background-position: 85% center !important;
+		transition: background-position 0.3s ease !important;
+	}
+}
+
+/* Timeline/Stepper Design for Work Experience */
+.experience_timeline {
+	position: relative;
+	padding: 20px 0;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.experience_timeline::before {
+	content: '';
+	position: absolute;
+	left: 60px;
+	top: 0;
+	bottom: 0;
+	width: 3px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+.experience_step {
+	position: relative;
+	margin-bottom: 40px;
+	padding-left: 120px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.experience_step:last-child {
+	margin-bottom: 0;
+}
+
+.experience_step::before {
+	content: '';
+	position: absolute;
+	left: 48px;
+	top: 8px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #fff;
+	border: 4px solid var(--main-color, #ff6b6b);
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+	z-index: 2;
+	transition: all 0.3s ease;
+}
+
+.experience_step:hover::before {
+	transform: scale(1.2);
+	box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.2);
+}
+
+.experience_content {
+	flex: 1;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	padding: 30px;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+body.dark .experience_content {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience_step:hover .experience_content {
+	transform: translateX(10px);
+}
+
+body.dark .experience_step:hover .experience_content {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.experience_date_badge {
+	position: absolute;
+	left: -180px;
+	top: 8px;
+	background: rgba(255, 107, 107, 0.2);
+	border: 1px solid rgba(255, 107, 107, 0.4);
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #333;
+	white-space: nowrap;
+	min-width: 140px;
+	text-align: center;
+}
+
+body.dark .experience_date_badge {
+	color: #fff;
+}
+
+.experience_content h4 {
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+}
+
+body.dark .experience_content h4 {
+	color: #fff;
+}
+
+.experience_content .company {
+	font-size: 16px;
+	color: rgba(255, 107, 107, 1);
+	font-weight: 600;
+	margin-bottom: 8px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.experience_content .location {
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.6);
+	margin-bottom: 20px;
+}
+
+body.dark .experience_content .location {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.experience_content .list_inner {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.experience_content .list_inner li {
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 12px;
+	line-height: 1.8;
+	color: rgba(0, 0, 0, 0.8);
+	font-family: 'Mulish', sans-serif;
+}
+
+body.dark .experience_content .list_inner li {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.experience_content .list_inner li::before {
+	content: '▸';
+	position: absolute;
+	left: 0;
+	color: rgba(255, 107, 107, 0.8);
+	font-weight: bold;
+}
+
+.experience_content .list_inner li:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 1040px) {
+	.experience_timeline::before {
+		left: 40px;
+	}
+
+	.experience_step {
+		padding-left: 90px;
+	}
+
+	.experience_step::before {
+		left: 28px;
+	}
+
+	.experience_date_badge {
+		left: -140px;
+		min-width: 120px;
+		font-size: 11px;
+		padding: 6px 12px;
+	}
+}
+
+@media (max-width: 768px) {
+	.experience_timeline {
+		padding: 20px 0;
+	}
+
+	.experience_timeline::before {
+		left: 20px;
+	}
+
+	.experience_step {
+		padding-left: 60px;
+		margin-bottom: 40px;
+	}
+
+	.experience_step::before {
+		left: 8px;
+		width: 20px;
+		height: 20px;
+		border-width: 3px;
+	}
+
+	.experience_date_badge {
+		position: static;
+		display: inline-block;
+		margin-bottom: 15px;
+		left: auto;
+		min-width: auto;
+	}
+
+	.experience_content {
+		padding: 20px;
+	}
+
+	.experience_content h4 {
+		font-size: 20px;
+	}
+
+	.experience_step:hover .experience_content {
+		transform: translateX(0);
+	}
+}
+
+/* Education Timeline - Same design as Experience */
+.education_timeline {
+	position: relative;
+	padding: 20px 0;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.education_timeline::before {
+	content: '';
+	position: absolute;
+	left: 60px;
+	top: 0;
+	bottom: 0;
+	width: 3px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+.education_step {
+	position: relative;
+	margin-bottom: 40px;
+	padding-left: 120px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.education_step:last-child {
+	margin-bottom: 0;
+}
+
+.education_step::before {
+	content: '';
+	position: absolute;
+	left: 48px;
+	top: 8px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #fff;
+	border: 4px solid var(--main-color, #ff6b6b);
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+	z-index: 2;
+	transition: all 0.3s ease;
+}
+
+.education_step:hover::before {
+	transform: scale(1.2);
+	box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.2);
+}
+
+.education_content {
+	flex: 1;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	padding: 30px;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+body.dark .education_content {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education_step:hover .education_content {
+	transform: translateX(10px);
+}
+
+body.dark .education_step:hover .education_content {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.education_date_badge {
+	position: absolute;
+	left: -180px;
+	top: 8px;
+	background: rgba(255, 107, 107, 0.2);
+	border: 1px solid rgba(255, 107, 107, 0.4);
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #333;
+	white-space: nowrap;
+	min-width: 140px;
+	text-align: center;
+}
+
+body.dark .education_date_badge {
+	color: #fff;
+}
+
+.education_content h4 {
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+}
+
+body.dark .education_content h4 {
+	color: #fff;
+}
+
+.education_content .institution {
+	font-size: 16px;
+	color: rgba(255, 107, 107, 1);
+	font-weight: 600;
+	margin-bottom: 8px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.education_content .location {
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.6);
+	margin-bottom: 15px;
+}
+
+body.dark .education_content .location {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.education_content p {
+	margin-bottom: 10px;
+	line-height: 1.8;
+	color: rgba(0, 0, 0, 0.8);
+	font-family: 'Mulish', sans-serif;
+}
+
+body.dark .education_content p {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.education_content p:last-child {
+	margin-bottom: 0;
+}
+
+.education_content strong {
+	color: rgba(255, 107, 107, 0.9);
+	font-weight: 600;
+}
+
+/* Reduce spacing between Experience and Education sections */
+#experience {
+	margin-bottom: 20px;
+}
+
+#education {
+	margin-top: 0;
+	padding-top: 20px;
+}
+
+/* Timeline line and indicators for light mode */
+body:not(.dark) .experience_timeline::before {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+body:not(.dark) .education_timeline::before {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+body:not(.dark) .experience_step::before {
+	background: #fff;
+	border-color: var(--main-color, #ff6b6b);
+	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark) .education_step::before {
+	background: #fff;
+	border-color: var(--main-color, #ff6b6b);
+	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1040px) {
+	.education_timeline::before {
+		left: 40px;
+	}
+
+	.education_step {
+		padding-left: 90px;
+	}
+
+	.education_step::before {
+		left: 28px;
+	}
+
+	.education_date_badge {
+		left: -140px;
+		min-width: 120px;
+		font-size: 11px;
+		padding: 6px 12px;
+	}
+}
+
+@media (max-width: 768px) {
+	.education_timeline {
+		padding: 20px 0;
+	}
+
+	.education_timeline::before {
+		left: 20px;
+	}
+
+	.education_step {
+		padding-left: 60px;
+		margin-bottom: 40px;
+	}
+
+	.education_step::before {
+		left: 8px;
+		width: 20px;
+		height: 20px;
+		border-width: 3px;
+	}
+
+	.education_date_badge {
+		position: static;
+		display: inline-block;
+		margin-bottom: 15px;
+		left: auto;
+		min-width: auto;
+	}
+
+	.education_content {
+		padding: 20px;
+	}
+
+	.education_content h4 {
+		font-size: 20px;
+	}
+
+	.education_step:hover .education_content {
+		transform: translateX(0);
+	}
+
+	#experience {
+		margin-bottom: 15px;
+	}
+
+	#education {
+		padding-top: 15px;
 	}
 }
 </style>
@@ -359,9 +851,7 @@ body.dark .grax_tm_news .list_inner .project_link {
 	<!-- HERO -->
 	<div class="grax_tm_hero" id="home">
 		<div class="bg">
-			<div class="glitch_wrap">
-				<div class="glitch" style="background-image: url('img/slider/IMG_2686.jpg');"></div>
-			</div>
+			<div class="image" style="background-image: url('img/slider/IMG_2686.jpg');"></div>
 			<div class="overlay"></div>
 		</div>
 		<div class="content">
@@ -627,46 +1117,53 @@ body.dark .grax_tm_news .list_inner .project_link {
 	<div class="grax_tm_section" id="experience">
 		<div class="grax_tm_about">
 			<div class="container">
-				<div class="grax_tm_title_holder">
-					<h3>Work <span>Experience</span></h3>
-				</div>
-				<div class="about_inner">
-					<div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
-						<div class="text">
-							<h4>Senior ICT Assistant (Software Development Engineer)</h4>
-							<p class="company">UITS</p>
-							<p class="date">Oct 2021 – Dec 2024 | Kumasi, Ghana</p>
-							<ul class="list_inner">
-								<li>Developed and deployed scalable web applications for 20K+ students using Python (Django) and React, reducing feature deployment time by 20% via modular design.</li>
-								<li>Worked on the backend and database of Transcript Request System that is used by thousands of students and alumni.</li>
-								<li>Optimized SQL queries with indexing and caching, cutting execution time by 30% for high-traffic systems, enhancing application speed and scalability.</li>
-								<li>Automated CI/CD pipelines using GitHub Actions, enabling 50% faster release cycles for critical university applications in a fast-paced environment.</li>
-								<li>Spearheaded migration from monolithic to microservices architecture, significantly improving system scalability and reducing server costs by 15%.</li>
-							</ul>
-						</div>
-						<div class="text mt-8">
-							<h4>User Support Engineer</h4>
-							<p class="company">UITS</p>
-							<p class="date">Aug 2020 – Sep 2021 | Kumasi, Ghana</p>
-							<ul class="list_inner">
-								<li>Provided comprehensive technical support to over 500 university students and staff, diagnosing and resolving software, hardware, and network connectivity issues.</li>
-								<li>Managed and maintained 2+ computer labs, including hardware installation, software deployment, and network configuration.</li>
-								<li>Documented troubleshooting procedures and common solutions, contributing to a knowledge base that enhanced self-service options.</li>
-								<li>Collaborated with development teams to escalate complex technical issues and provide user feedback.</li>
-							</ul>
-						</div>
-						<div class="text mt-8">
-							<h4>Software Developer Intern</h4>
-							<p class="company">EXRX.NET (Remote) – Fitness Tech Startup</p>
-							<p class="date">Aug 2023 – Nov 2023</p>
-							<ul class="list_inner">
-								<li>Built and debugged Flutter-based fitness apps and PHP Laravel backend services powering personalized workout experiences for thousands of users.</li>
-								<li>Wrote automated test suites covering critical backend logic, reducing post-release bugs by 40%.</li>
-								<li>Participated in weekly code reviews with senior developers, providing peer feedback and improving team code quality by 30%.</li>
-							</ul>
-						</div>
+			<div class="grax_tm_title_holder">
+				<h3>Work <span>Experience</span></h3>
+			</div>
+			<div class="experience_timeline">
+				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
+					<div class="experience_date_badge">Oct 2021 – Dec 2024</div>
+					<div class="experience_content">
+						<h4>Senior ICT Assistant (Software Development Engineer)</h4>
+						<p class="company">University Information Technology Services  - Kwame Nkrumah University of Science and Technology (UITS-KNUST)</p>
+						<p class="location">Kumasi, Ghana</p>
+						<ul class="list_inner">
+							<li>Developed and deployed scalable web applications for 20K+ students using Python (Django) and React, reducing feature deployment time by 20% via modular design.</li>
+							<li>Worked on the backend and database of Transcript Request System that is used by thousands of students and alumni.</li>
+							<li>Optimized SQL queries with indexing and caching, cutting execution time by 30% for high-traffic systems, enhancing application speed and scalability.</li>
+							<li>Automated CI/CD pipelines using GitHub Actions, enabling 50% faster release cycles for critical university applications in a fast-paced environment.</li>
+							<li>Spearheaded migration from monolithic to microservices architecture, significantly improving system scalability and reducing server costs by 15%.</li>
+						</ul>
 					</div>
 				</div>
+				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
+					<div class="experience_date_badge">Aug 2023 – Nov 2023</div>
+					<div class="experience_content">
+						<h4>Software Developer Intern</h4>
+						<p class="company">EXRX.NET (Remote) – Fitness Tech Startup</p>
+						<p class="location">Remote</p>
+						<ul class="list_inner">
+							<li>Built and debugged Flutter-based fitness apps and PHP Laravel backend services powering personalized workout experiences for thousands of users.</li>
+							<li>Wrote automated test suites covering critical backend logic, reducing post-release bugs by 40%.</li>
+							<li>Participated in weekly code reviews with senior developers, providing peer feedback and improving team code quality by 30%.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s">
+					<div class="experience_date_badge">Aug 2020 – Sep 2021</div>
+					<div class="experience_content">
+						<h4>User Support Engineer</h4>
+						<p class="company">University Information Technology Services  - Kwame Nkrumah University of Science and Technology (UITS-KNUST)</p>
+						<p class="location">Kumasi, Ghana</p>
+						<ul class="list_inner">
+							<li>Provided comprehensive technical support to over 500 university students and staff, diagnosing and resolving software, hardware, and network connectivity issues.</li>
+							<li>Managed and maintained 2+ computer labs, including hardware installation, software deployment, and network configuration.</li>
+							<li>Documented troubleshooting procedures and common solutions, contributing to a knowledge base that enhanced self-service options.</li>
+							<li>Collaborated with development teams to escalate complex technical issues and provide user feedback.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -676,45 +1173,51 @@ body.dark .grax_tm_news .list_inner .project_link {
 	<div class="grax_tm_section" id="education">
 		<div class="grax_tm_about">
 			<div class="container">
-				<div class="grax_tm_title_holder">
-					<h3>My <span>Education</span></h3>
-				</div>
-				<div class="about_inner">
-					<div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s" style="width: 100%;">
-						<div class="text">
-							<h4>MS. Computer Science</h4>
-							<p>University of New Haven</p>
-							<p class="date">West Haven, CT, USA | Jan 2025 – Dec 2026</p>
-							<p>Grade: 4.0/4.0</p>
-							<p>Concentration in AI/ML, distributed systems, and secure software engineering with advanced coursework in Python, Java, C++, Objective-C, Linux, and applied research across AI search, reinforcement learning, and distributed databases.</p>
-						</div>
-
-						<div class="text mt-8">
-							<h4>Associate Python Developer</h4>
-							<p>DataCamp</p>
-							<p class="date">Dec 2023 – Sep 2024</p>
-							<p>Completed DataCamp’s Associate Python Developer track covering Python fundamentals, data structures, control flow, functional programming, OOP, and regular expressions with extensive hands-on labs.</p>
-							<p><strong>Skills:</strong> Lambda Expressions · OOP · Regular Expressions · Python Toolbox</p>
-						</div>
-
-						<div class="text mt-8">
-							<h4>Software Engineering</h4>
-							<p>ALX</p>
-							<p class="date">Feb 2022 – May 2023</p>
-							<p>Intensive full-stack engineering program building production-grade apps (e.g., Samaritan chat platform) with C, Python, JavaScript, React, and Git-based workflows.</p>
-							<p><strong>Skills:</strong> Python · JavaScript · React.js · Databases · Git/GitHub</p>
-						</div>
-
-						<div class="text mt-8">
-							<h4>Nanodegree Program, Cloud DevOps Engineer</h4>
-							<p>Udacity</p>
-							<p class="date">May 2022 – Aug 2022</p>
-							<p>Delivered AWS DevOps projects including static site deployments, HA architectures with CloudFormation, automated CI/CD pipelines, and containerized ML microservices.</p>
-							<p><strong>Skills:</strong> AWS · CloudFormation · Docker · Kubernetes · GitOps · CircleCI</p>
-						</div>
-
+			<div class="grax_tm_title_holder">
+				<h3>My <span>Education</span></h3>
+			</div>
+			<div class="education_timeline">
+				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
+					<div class="education_date_badge">Jan 2025 – Dec 2026</div>
+					<div class="education_content">
+						<h4>MS. Computer Science</h4>
+						<p class="institution">University of New Haven</p>
+						<p class="location">West Haven, CT, USA</p>
+						<p>Grade: 4.0/4.0</p>
+						<p>Concentration in AI/ML, distributed systems, and secure software engineering with advanced coursework in Python, Java, C++, Objective-C, Linux, and applied research across AI search, reinforcement learning, and distributed databases.</p>
 					</div>
 				</div>
+
+				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
+					<div class="education_date_badge">Dec 2023 – Sep 2024</div>
+					<div class="education_content">
+						<h4>Associate Python Developer</h4>
+						<p class="institution">DataCamp</p>
+						<p>Completed DataCamp's Associate Python Developer track covering Python fundamentals, data structures, control flow, functional programming, OOP, and regular expressions with extensive hands-on labs.</p>
+						<p><strong>Skills:</strong> Lambda Expressions · OOP · Regular Expressions · Python Toolbox</p>
+					</div>
+				</div>
+
+				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
+					<div class="education_date_badge">Feb 2022 – May 2023</div>
+					<div class="education_content">
+						<h4>Software Engineering</h4>
+						<p class="institution">ALX</p>
+						<p>Intensive full-stack engineering program building production-grade apps (e.g., Samaritan chat platform) with C, Python, JavaScript, React, and Git-based workflows.</p>
+						<p><strong>Skills:</strong> Python · JavaScript · React.js · Databases · Git/GitHub</p>
+					</div>
+				</div>
+
+				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+					<div class="education_date_badge">May 2022 – Aug 2022</div>
+					<div class="education_content">
+						<h4>Nanodegree Program, Cloud DevOps Engineer</h4>
+						<p class="institution">Udacity</p>
+						<p>Delivered AWS DevOps projects including static site deployments, HA architectures with CloudFormation, automated CI/CD pipelines, and containerized ML microservices.</p>
+						<p><strong>Skills:</strong> AWS · CloudFormation · Docker · Kubernetes · GitOps · CircleCI</p>
+					</div>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -746,6 +1249,23 @@ body.dark .grax_tm_news .list_inner .project_link {
 				</div>
 				<div class="news_list">
 					<ul>
+						<li class="wow fadeInLeft" data-wow-duration="1.5s">
+							<div class="list_inner">
+								<div class="image">
+									<img src="img/placeholders/4-3.jpg" alt="" />
+									<div class="main" data-img-url="https://image.thum.io/get/width/600/crop/600/https://www.hackerrank.com/certificates/iframe/c08f0f8b4ae3"></div>
+									<a class="grax_tm_full_link" href="https://learn.nvidia.com/certificates?id=r2RdabfGSrSQaWLaGiyumQ"></a>
+								</div>
+								<div class="details">
+									<h3 class="title"><a href="https://www.hackerrank.com/certificates/iframe/c08f0f8b4ae3">HACKERRANK: Software Engineer</a></h3>
+									<p class="date">By <a href="#">HACKERRANK</a> <span>Nov 2025</span></p>
+								</div>
+								<div class="description">
+									<p>Earned the HackerRank Software Engineer certification, demonstrating strong proficiency in problem-solving, data structures, algorithms, and software engineering fundamentals. This certification validates technical coding skills and the ability to solve complex programming challenges efficiently. Certificate ID: c08f0f8b4ae3</p>
+								</div>
+								<a class="project_link" href="https://learn.nvidia.com/certificates?id=r2RdabfGSrSQaWLaGiyumQ" target="_blank">→</a>
+							</div>
+						</li>
 						<li class="wow fadeInLeft" data-wow-duration="1.5s">
 							<div class="list_inner">
 								<div class="image">
@@ -958,19 +1478,7 @@ body.dark .grax_tm_news .list_inner .project_link {
 							<li>
 								<div class="list_inner">
 									<img class="svg" src="img/svg/location.svg" alt="" />
-									<p><span class="first">Address:</span><span class="second">West Haven, CT, USA</span></p>
-								</div>
-							</li>
-							<li>
-								<div class="list_inner">
-									<img class="svg" src="img/svg/email.svg" alt="" />
-									<p><span class="first">Email:</span><span class="second"><a href="mailto:raymondamoateng@gmail.com">raymondamoateng@gmail.com</a></span></p>
-								</div>
-							</li>
-							<li>
-								<div class="list_inner">
-									<img class="svg" src="img/svg/phone.svg" alt="" />
-									<p><span class="first">Phone:</span><span class="second"><a href="tel:+12038433101">+1 203-843-3101</a></span></p>
+									<p><span class="first">Address:</span><span class="second">Connecticut, USA</span></p>
 								</div>
 							</li>
 							<li>
@@ -1071,6 +1579,11 @@ body.dark .grax_tm_news .list_inner .project_link {
 <script>
 	// Portfolio Horizontal Scroll - Featured Project Toggle
 	jQuery(document).ready(function($) {
+		// Disable glitch effect
+		if ($.fn.mgGlitch) {
+			$('.glitch').mgGlitch({ destroy: true });
+		}
+
 		$('.portfolio_item').on('click', function() {
 			// Remove featured class from all items
 			$('.portfolio_item').removeClass('featured');

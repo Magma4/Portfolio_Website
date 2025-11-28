@@ -173,7 +173,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-- Design inspiration from modern portfolio templates
 - Icons from [Devicons](https://devicon.dev/)
 - Fonts from [Google Fonts](https://fonts.google.com/)
 

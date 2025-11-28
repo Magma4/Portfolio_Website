@@ -77,9 +77,8 @@ function grax_tm_contact_form() {
 }
 
 /*
- * Copyright (c) 2022 Marketify
- * Author: Marketify
- * This file is made for CURRENT TEMPLATE
+ * Portfolio Website - Initialization Script
+ * Main JavaScript functionality
 */
 
 
