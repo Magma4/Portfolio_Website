@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-<head>
+<html lang="en"> <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="icon" type="image/png" href="img/favicon.png" />
 
-<meta name="description" content="Raymond Frimpong Amoateng's Professional Portfolio">
+<meta name="description" content="Raymond Frimpong Amoateng | Software Engineer specializing in AI, Distributed Systems, and Cloud Infrastructure.">
 <meta name="author" content="Raymond Frimpong Amoateng">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title> Raymond Frimpong Amoateng | Portfolio</title>
+<title>Raymond Frimpong Amoateng | Software Engineer & AI Researcher</title>
 
-<!-- STYLES -->
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 
@@ -27,1220 +21,839 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 <style>
+/* --- HERO SECTION: SIDE-BY-SIDE LAYOUT --- */
+
+.grax_tm_hero {
+    position: relative;
+    padding: 150px 0 100px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+/* Light mode styles for hero section */
+body:not(.dark) .grax_tm_hero {
+    background: radial-gradient(circle at center, #f0f0f5 0%, #ffffff 100%);
+}
+
+/* Wrapper to hold Animation (Left) and Text (Right) */
+.hero_content_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Centered nicely */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 80px; /* Increased gap for better separation */
+}
+
+/* 1. Animation Container (Left Side) - MADE BIGGER */
+.gauntlet_tech_container {
+    position: relative;
+    width: 600px;  /* Increased from 400px */
+    height: 600px; /* Increased from 400px */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Central Gauntlet - MADE BIGGER */
+.gauntlet_core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;  /* Increased from 220px */
+    height: 350px; /* Increased from 220px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.gauntlet_img_hero {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 10;
+    animation: float_hero 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6)); /* Stronger glow */
+    transition: filter 0.3s ease;
+}
+
+/* Light mode gauntlet - adjust glow */
+body:not(.dark) .gauntlet_img_hero {
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.3));
+}
+
+.gauntlet_pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    animation: ripple_hero 3s linear infinite;
+    z-index: 1;
+    transition: border-color 0.3s ease;
+}
+
+/* Light mode pulse ring */
+body:not(.dark) .gauntlet_pulse {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Text Content (Right Side) */
+.hero_details {
+    flex: 1;
+    text-align: left;
+    z-index: 10;
+    padding-left: 20px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.sub_hero {
+    font-size: 24px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+    /* Color will be set by colors.css based on theme */
+}
+
+.name_hero {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    line-height: 1.3;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Light mode text styles */
+body:not(.dark) .name_hero {
+    color: #1a1a2e;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.job_hero {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+    font-weight: 400;
+    font-family: 'Mulish', sans-serif;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, color 0.3s ease;
+}
+
+/* Light mode job title */
+body:not(.dark) .job_hero {
+    color: rgba(26, 26, 46, 0.8);
+}
+
+/* Text Animation Keyframes */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text Animation Keyframes */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUpText {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ORBIT ANIMATION LOGIC --- */
+/* The container that spins */
+.spin_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    animation: spin_right 30s linear infinite;
+}
+
+/* The items on the orbit ring */
+.orbit_stone {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 70px; height: 70px; /* Slightly larger stones */
+    margin-left: -35px; margin-top: -35px;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Radius Increased to 280px to match bigger gauntlet - 7 stones at ~51.43deg intervals */
+.stone_1 { transform: rotate(0deg) translate(280px) rotate(0deg); }
+.stone_2 { transform: rotate(51.43deg) translate(280px) rotate(-51.43deg); }
+.stone_3 { transform: rotate(102.86deg) translate(280px) rotate(-102.86deg); }
+.stone_4 { transform: rotate(154.29deg) translate(280px) rotate(-154.29deg); }
+.stone_5 { transform: rotate(205.71deg) translate(280px) rotate(-205.71deg); }
+.stone_6 { transform: rotate(257.14deg) translate(280px) rotate(-257.14deg); }
+.stone_7 { transform: rotate(308.57deg) translate(280px) rotate(-308.57deg); }
+
+.orbit_stone i {
+    font-size: 38px; /* Larger icons */
+    background: rgba(10, 10, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 14px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Counter-rotate to keep icons upright */
+    animation: spin_left 40s linear infinite;
+    color: #fff;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Light mode orbit stones */
+body:not(.dark) .orbit_stone i {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Keyframes */
+@keyframes spin_right { 100% { transform: rotate(360deg); } }
+@keyframes spin_left { 100% { transform: rotate(-360deg); } }
+@keyframes float_hero { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes ripple_hero { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1200px) {
+    /* Scale down slightly for medium screens */
+    .gauntlet_tech_container { width: 500px; height: 500px; }
+    .gauntlet_core { width: 280px; height: 280px; }
+    .stone_1 { transform: rotate(0deg) translate(230px) rotate(0deg); }
+    .stone_2 { transform: rotate(51.43deg) translate(230px) rotate(-51.43deg); }
+    .stone_3 { transform: rotate(102.86deg) translate(230px) rotate(-102.86deg); }
+    .stone_4 { transform: rotate(154.29deg) translate(230px) rotate(-154.29deg); }
+    .stone_5 { transform: rotate(205.71deg) translate(230px) rotate(-205.71deg); }
+    .stone_6 { transform: rotate(257.14deg) translate(230px) rotate(-257.14deg); }
+    .stone_7 { transform: rotate(308.57deg) translate(230px) rotate(-308.57deg); }
+}
+
+@media (max-width: 992px) {
+    .hero_content_wrapper {
+        flex-direction: column; /* Stack on tablet/mobile */
+        justify-content: center;
+        text-align: center;
+        padding-top: 20px;
+        gap: 40px;
+    }
+
+    .gauntlet_tech_container {
+        width: 320px; height: 320px;
+        order: 1; /* Animation first */
+    }
+
+    .hero_details {
+        order: 2; /* Text second */
+        text-align: center;
+        padding-left: 0;
+    }
+
+    /* Revert to smaller size for mobile */
+    .gauntlet_core { width: 180px; height: 180px; }
+
+    /* Shrink radius for mobile */
+    .stone_1 { transform: rotate(0deg) translate(140px) rotate(0deg); }
+    .stone_2 { transform: rotate(51.43deg) translate(140px) rotate(-51.43deg); }
+    .stone_3 { transform: rotate(102.86deg) translate(140px) rotate(-102.86deg); }
+    .stone_4 { transform: rotate(154.29deg) translate(140px) rotate(-154.29deg); }
+    .stone_5 { transform: rotate(205.71deg) translate(140px) rotate(-205.71deg); }
+    .stone_6 { transform: rotate(257.14deg) translate(140px) rotate(-257.14deg); }
+    .stone_7 { transform: rotate(308.57deg) translate(140px) rotate(-308.57deg); }
+
+    .orbit_stone { width: 45px; height: 45px; }
+    .orbit_stone i { font-size: 24px; padding: 10px; }
+
+    .name_hero { font-size: 36px; }
+    .job_hero { font-size: 18px; }
+}
+
+/* END HERO CSS */
+
+/* --- GENERAL PORTFOLIO CSS --- */
 .portfolio_horizontal_scroll {
-	width: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
-	padding: 90px 0 50px 0;
-	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+    width: 100%; overflow-x: auto; overflow-y: hidden; padding: 90px 0 50px 0;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;
 }
-
-.portfolio_horizontal_scroll::-webkit-scrollbar {
-	display: none;
-}
-
-.portfolio_scroll_container {
-	display: flex;
-	gap: 30px;
-	padding: 0 20px;
-	width: max-content;
-}
-
-.portfolio_item {
-	flex: 0 0 auto;
-	width: 350px;
-	min-height: 400px;
-	transition: all 0.4s ease;
-	cursor: pointer;
-}
-
-.portfolio_item.featured {
-	width: 600px;
-	min-height: 500px;
-}
-
-.portfolio_item:not(.featured) {
-	opacity: 0.7;
-}
-
-.portfolio_item:not(.featured):hover {
-	opacity: 1;
-	transform: translateY(-5px);
-}
+.portfolio_horizontal_scroll::-webkit-scrollbar { display: none; }
+.portfolio_scroll_container { display: flex; gap: 30px; padding: 0 20px; width: max-content; }
+.portfolio_item { flex: 0 0 auto; width: 350px; min-height: 400px; transition: all 0.4s ease; cursor: pointer; }
+.portfolio_item.featured { width: 600px; min-height: 500px; }
+.portfolio_item:not(.featured) { opacity: 0.7; }
+.portfolio_item:not(.featured):hover { opacity: 1; transform: translateY(-5px); }
 
 .project_card {
-	width: 100%;
-	height: 100%;
-	background: #000;
-	color: #fff;
-	padding: 40px;
-	border-radius: 5px;
-	position: relative;
-	font-family: 'Courier New', Courier, monospace;
-	display: flex;
-	flex-direction: column;
+    width: 100%; height: 100%; background: #000; color: #fff; padding: 40px;
+    border-radius: 5px; position: relative; font-family: 'Courier New', Courier, monospace;
+    display: flex; flex-direction: column;
 }
-
 .project_card .github_preview {
-	width: 100%;
-	height: 200px;
-	margin-bottom: 20px;
-	border-radius: 5px;
-	overflow: hidden;
-	background: #1a1a1a;
-	position: relative;
-	border: 1px solid #333;
+    width: 100%; height: 200px; margin-bottom: 20px; border-radius: 5px;
+    overflow: hidden; background: #1a1a1a; position: relative; border: 1px solid #333;
 }
+.project_card .github_preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project_card.featured .github_preview { height: 250px; }
+.project_card .github_preview:has(img[style*="display: none"]) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
 
-.project_card .github_preview img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-.project_card.featured .github_preview {
-	height: 250px;
-}
-
-/* Fallback gradient when image fails to load */
-.project_card .github_preview:has(img[style*="display: none"]) {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.project_title {
-	font-size: 24px;
-	font-weight: 700;
-	margin-bottom: 15px;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-}
-
-.project_status {
-	font-size: 14px;
-	margin-bottom: 10px;
-	color: #999;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-.project_tech {
-	font-size: 12px;
-	color: #666;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-.project_tech_full {
-	font-size: 12px;
-	color: #666;
-	margin-top: 20px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-.project_description {
-	margin: 30px 0;
-	flex: 1;
-}
-
-.project_description p {
-	font-size: 14px;
-	line-height: 1.8;
-	color: #ccc;
-	margin-bottom: 15px;
-	font-family: 'Mulish', sans-serif;
-}
-
-.project_link {
-	position: absolute;
-	bottom: 40px;
-	right: 40px;
-	font-size: 24px;
-	color: #fff;
-	text-decoration: none;
-	transition: transform 0.3s ease;
-}
-
-.project_link:hover {
-	transform: translateX(5px);
-}
-
-.label .skill-icon {
-	font-size: 20px;
-	margin-right: 6px;
-	vertical-align: middle;
-}
-
-.label .skill-icon + .skill-icon {
-	margin-left: 4px;
-}
-
-/* Arrow links for news/certification cards */
-.grax_tm_news .list_inner .project_link {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	font-size: 24px;
-	color: #000;
-	text-decoration: none;
-	transition: transform 0.3s ease;
-	z-index: 10;
-}
-
-body.dark .grax_tm_news .list_inner .project_link {
-	color: #fff;
-}
-
-.grax_tm_news .list_inner .project_link:hover {
-	transform: translateX(5px);
-}
-
-.gradient_datacamp {
-	background: linear-gradient(135deg, #05192D 0%, #0A3D62 50%, #05192D 100%);
-}
-
-.gradient_udacity {
-	background: linear-gradient(135deg, #02B3E4 0%, #02CCBA 50%, #02B3E4 100%);
-}
-
-.gradient_google {
-	background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
-}
-
-.portfolio_item:not(.featured) .project_description,
-.portfolio_item:not(.featured) .project_tech_full {
-	display: none;
-}
-
-/* Progressive image shift as screen size reduces */
-@media (max-width: 1040px) {
-	.grax_tm_hero .bg .image {
-		background-position: 60% center !important;
-		transition: background-position 0.3s ease !important;
-	}
-}
+.project_title { font-size: 24px; font-weight: 700; margin-bottom: 15px; color: #fff; font-family: 'Poppins', sans-serif; }
+.project_status { font-size: 14px; margin-bottom: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+.project_tech_full { font-size: 12px; color: #666; margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.project_description { margin: 30px 0; flex: 1; }
+.project_description p { font-size: 14px; line-height: 1.8; color: #ccc; margin-bottom: 15px; font-family: 'Mulish', sans-serif; }
+.project_link { position: absolute; bottom: 40px; right: 40px; font-size: 24px; color: #fff; text-decoration: none; transition: transform 0.3s ease; }
+.project_link:hover { transform: translateX(5px); }
+.portfolio_item:not(.featured) .project_description, .portfolio_item:not(.featured) .project_tech_full { display: none; }
 
 @media (max-width: 768px) {
-	.portfolio_item {
-		width: 280px;
-		min-height: 350px;
-	}
-
-	.portfolio_item.featured {
-		width: 280px;
-		min-height: 450px;
-	}
-
-	.project_card {
-		padding: 30px;
-	}
-
-	/* Ensure hero background image displays on mobile and shift right */
-	.grax_tm_hero .bg .image {
-		background-size: cover !important;
-		background-position: 70% center !important;
-		background-attachment: scroll !important;
-		background-repeat: no-repeat !important;
-		-webkit-background-size: cover !important;
-		-moz-background-size: cover !important;
-		-o-background-size: cover !important;
-		transition: background-position 0.3s ease !important;
-	}
+    .portfolio_item { width: 280px; min-height: 350px; }
+    .portfolio_item.featured { width: 280px; min-height: 450px; }
+    .project_card { padding: 30px; }
 }
 
-@media (max-width: 480px) {
-	/* Shift image further to the right on small mobile screens */
-	.grax_tm_hero .bg .image {
-		background-position: 85% center !important;
-		transition: background-position 0.3s ease !important;
-	}
-}
-
-/* Timeline/Stepper Design for Work Experience */
-.experience_timeline {
-	position: relative;
-	padding: 20px 0;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.experience_timeline::before {
-	content: '';
-	position: absolute;
-	left: 60px;
-	top: 0;
-	bottom: 0;
-	width: 3px;
-	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-}
-
-.experience_step {
-	position: relative;
-	margin-bottom: 40px;
-	padding-left: 120px;
-	display: flex;
-	align-items: flex-start;
-}
-
-.experience_step:last-child {
-	margin-bottom: 0;
-}
-
-.experience_step::before {
-	content: '';
-	position: absolute;
-	left: 48px;
-	top: 8px;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	background: #fff;
-	border: 4px solid var(--main-color, #ff6b6b);
-	box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
-	z-index: 2;
-	transition: all 0.3s ease;
-}
-
-.experience_step:hover::before {
-	transform: scale(1.2);
-	box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.2);
-}
-
-.experience_content {
-	flex: 1;
-	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
-	padding: 30px;
-	transition: all 0.3s ease;
-	position: relative;
-}
-
-body.dark .experience_content {
-	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.experience_step:hover .experience_content {
-	transform: translateX(10px);
-}
-
-body.dark .experience_step:hover .experience_content {
-	background: rgba(255, 255, 255, 0.05);
-	border-color: rgba(255, 255, 255, 0.2);
-}
-
-.experience_date_badge {
-	position: absolute;
-	left: -180px;
-	top: 8px;
-	background: rgba(255, 107, 107, 0.2);
-	border: 1px solid rgba(255, 107, 107, 0.4);
-	padding: 8px 16px;
-	border-radius: 20px;
-	font-size: 12px;
-	font-weight: 600;
-	color: #333;
-	white-space: nowrap;
-	min-width: 140px;
-	text-align: center;
-}
-
-body.dark .experience_date_badge {
-	color: #fff;
-}
-
-.experience_content h4 {
-	font-size: 22px;
-	font-weight: 700;
-	margin-bottom: 10px;
-	color: #000;
-	font-family: 'Poppins', sans-serif;
-}
-
-body.dark .experience_content h4 {
-	color: #fff;
-}
-
-.experience_content .company {
-	font-size: 16px;
-	color: rgba(255, 107, 107, 1);
-	font-weight: 600;
-	margin-bottom: 8px;
-	font-family: 'Poppins', sans-serif;
-}
-
-.experience_content .location {
-	font-size: 14px;
-	color: rgba(0, 0, 0, 0.6);
-	margin-bottom: 20px;
-}
-
-body.dark .experience_content .location {
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.experience_content .list_inner {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.experience_content .list_inner li {
-	position: relative;
-	padding-left: 25px;
-	margin-bottom: 12px;
-	line-height: 1.8;
-	color: rgba(0, 0, 0, 0.8);
-	font-family: 'Mulish', sans-serif;
-}
-
-body.dark .experience_content .list_inner li {
-	color: rgba(255, 255, 255, 0.8);
-}
-
-.experience_content .list_inner li::before {
-	content: '▸';
-	position: absolute;
-	left: 0;
-	color: rgba(255, 107, 107, 0.8);
-	font-weight: bold;
-}
-
-.experience_content .list_inner li:last-child {
-	margin-bottom: 0;
-}
+/* Timeline/Stepper Design */
+.experience_timeline, .education_timeline { position: relative; padding: 20px 0; max-width: 1200px; margin: 0 auto; }
+.experience_timeline::before, .education_timeline::before { content: ''; position: absolute; left: 60px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); }
+.experience_step, .education_step { position: relative; margin-bottom: 40px; padding-left: 120px; display: flex; align-items: flex-start; }
+.experience_step:last-child, .education_step:last-child { margin-bottom: 0; }
+.experience_step::before, .education_step::before { content: ''; position: absolute; left: 48px; top: 8px; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 4px solid var(--main-color, #ff6b6b); box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1); z-index: 2; transition: all 0.3s ease; }
+.experience_step:hover::before, .education_step:hover::before { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.2); }
+.experience_content, .education_content { flex: 1; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 30px; transition: all 0.3s ease; position: relative; }
+.experience_step:hover .experience_content, .education_step:hover .education_content { transform: translateX(10px); background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); }
+.experience_date_badge, .education_date_badge { position: absolute; left: -180px; top: 8px; background: rgba(255, 107, 107, 0.2); border: 1px solid rgba(255, 107, 107, 0.4); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; min-width: 140px; text-align: center; }
+.experience_content h4, .education_content h4 { font-size: 22px; font-weight: 700; margin-bottom: 10px; color: #fff; font-family: 'Poppins', sans-serif; }
+.experience_content .company, .education_content .institution { font-size: 16px; color: rgba(255, 107, 107, 1); font-weight: 600; margin-bottom: 8px; font-family: 'Poppins', sans-serif; }
+.experience_content .location, .education_content .location { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 20px; }
+.experience_content .list_inner, .education_content .list_inner { list-style: none; padding: 0; margin: 0; }
+.experience_content .list_inner li { position: relative; padding-left: 25px; margin-bottom: 12px; line-height: 1.8; color: rgba(255, 255, 255, 0.8); font-family: 'Mulish', sans-serif; }
+.experience_content .list_inner li::before { content: '▸'; position: absolute; left: 0; color: rgba(255, 107, 107, 0.8); font-weight: bold; }
+.education_content p { margin-bottom: 10px; line-height: 1.8; color: rgba(255, 255, 255, 0.8); font-family: 'Mulish', sans-serif; }
 
 @media (max-width: 1040px) {
-	.experience_timeline::before {
-		left: 40px;
-	}
-
-	.experience_step {
-		padding-left: 90px;
-	}
-
-	.experience_step::before {
-		left: 28px;
-	}
-
-	.experience_date_badge {
-		left: -140px;
-		min-width: 120px;
-		font-size: 11px;
-		padding: 6px 12px;
-	}
+    .experience_timeline::before, .education_timeline::before { left: 40px; }
+    .experience_step, .education_step { padding-left: 90px; }
+    .experience_step::before, .education_step::before { left: 28px; }
+    .experience_date_badge, .education_date_badge { left: -140px; min-width: 120px; font-size: 11px; padding: 6px 12px; }
 }
-
 @media (max-width: 768px) {
-	.experience_timeline {
-		padding: 20px 0;
-	}
-
-	.experience_timeline::before {
-		left: 20px;
-	}
-
-	.experience_step {
-		padding-left: 60px;
-		margin-bottom: 40px;
-	}
-
-	.experience_step::before {
-		left: 8px;
-		width: 20px;
-		height: 20px;
-		border-width: 3px;
-	}
-
-	.experience_date_badge {
-		position: static;
-		display: inline-block;
-		margin-bottom: 15px;
-		left: auto;
-		min-width: auto;
-	}
-
-	.experience_content {
-		padding: 20px;
-	}
-
-	.experience_content h4 {
-		font-size: 20px;
-	}
-
-	.experience_step:hover .experience_content {
-		transform: translateX(0);
-	}
-}
-
-/* Education Timeline - Same design as Experience */
-.education_timeline {
-	position: relative;
-	padding: 20px 0;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.education_timeline::before {
-	content: '';
-	position: absolute;
-	left: 60px;
-	top: 0;
-	bottom: 0;
-	width: 3px;
-	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-}
-
-.education_step {
-	position: relative;
-	margin-bottom: 40px;
-	padding-left: 120px;
-	display: flex;
-	align-items: flex-start;
-}
-
-.education_step:last-child {
-	margin-bottom: 0;
-}
-
-.education_step::before {
-	content: '';
-	position: absolute;
-	left: 48px;
-	top: 8px;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	background: #fff;
-	border: 4px solid var(--main-color, #ff6b6b);
-	box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
-	z-index: 2;
-	transition: all 0.3s ease;
-}
-
-.education_step:hover::before {
-	transform: scale(1.2);
-	box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.2);
-}
-
-.education_content {
-	flex: 1;
-	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
-	padding: 30px;
-	transition: all 0.3s ease;
-	position: relative;
-}
-
-body.dark .education_content {
-	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.education_step:hover .education_content {
-	transform: translateX(10px);
-}
-
-body.dark .education_step:hover .education_content {
-	background: rgba(255, 255, 255, 0.05);
-	border-color: rgba(255, 255, 255, 0.2);
-}
-
-.education_date_badge {
-	position: absolute;
-	left: -180px;
-	top: 8px;
-	background: rgba(255, 107, 107, 0.2);
-	border: 1px solid rgba(255, 107, 107, 0.4);
-	padding: 8px 16px;
-	border-radius: 20px;
-	font-size: 12px;
-	font-weight: 600;
-	color: #333;
-	white-space: nowrap;
-	min-width: 140px;
-	text-align: center;
-}
-
-body.dark .education_date_badge {
-	color: #fff;
-}
-
-.education_content h4 {
-	font-size: 22px;
-	font-weight: 700;
-	margin-bottom: 10px;
-	color: #000;
-	font-family: 'Poppins', sans-serif;
-}
-
-body.dark .education_content h4 {
-	color: #fff;
-}
-
-.education_content .institution {
-	font-size: 16px;
-	color: rgba(255, 107, 107, 1);
-	font-weight: 600;
-	margin-bottom: 8px;
-	font-family: 'Poppins', sans-serif;
-}
-
-.education_content .location {
-	font-size: 14px;
-	color: rgba(0, 0, 0, 0.6);
-	margin-bottom: 15px;
-}
-
-body.dark .education_content .location {
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.education_content p {
-	margin-bottom: 10px;
-	line-height: 1.8;
-	color: rgba(0, 0, 0, 0.8);
-	font-family: 'Mulish', sans-serif;
-}
-
-body.dark .education_content p {
-	color: rgba(255, 255, 255, 0.8);
-}
-
-.education_content p:last-child {
-	margin-bottom: 0;
-}
-
-.education_content strong {
-	color: rgba(255, 107, 107, 0.9);
-	font-weight: 600;
-}
-
-/* Reduce spacing between Experience and Education sections */
-#experience {
-	margin-bottom: 20px;
-}
-
-#education {
-	margin-top: 0;
-	padding-top: 20px;
-}
-
-/* Timeline line and indicators for light mode */
-body:not(.dark) .experience_timeline::before {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
-}
-
-body:not(.dark) .education_timeline::before {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
-}
-
-body:not(.dark) .experience_step::before {
-	background: #fff;
-	border-color: var(--main-color, #ff6b6b);
-	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-}
-
-body:not(.dark) .education_step::before {
-	background: #fff;
-	border-color: var(--main-color, #ff6b6b);
-	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 1040px) {
-	.education_timeline::before {
-		left: 40px;
-	}
-
-	.education_step {
-		padding-left: 90px;
-	}
-
-	.education_step::before {
-		left: 28px;
-	}
-
-	.education_date_badge {
-		left: -140px;
-		min-width: 120px;
-		font-size: 11px;
-		padding: 6px 12px;
-	}
-}
-
-@media (max-width: 768px) {
-	.education_timeline {
-		padding: 20px 0;
-	}
-
-	.education_timeline::before {
-		left: 20px;
-	}
-
-	.education_step {
-		padding-left: 60px;
-		margin-bottom: 40px;
-	}
-
-	.education_step::before {
-		left: 8px;
-		width: 20px;
-		height: 20px;
-		border-width: 3px;
-	}
-
-	.education_date_badge {
-		position: static;
-		display: inline-block;
-		margin-bottom: 15px;
-		left: auto;
-		min-width: auto;
-	}
-
-	.education_content {
-		padding: 20px;
-	}
-
-	.education_content h4 {
-		font-size: 20px;
-	}
-
-	.education_step:hover .education_content {
-		transform: translateX(0);
-	}
-
-	#experience {
-		margin-bottom: 15px;
-	}
-
-	#education {
-		padding-top: 15px;
-	}
+    .experience_timeline, .education_timeline { padding: 20px 0; }
+    .experience_timeline::before, .education_timeline::before { left: 20px; }
+    .experience_step, .education_step { padding-left: 60px; margin-bottom: 40px; }
+    .experience_step::before, .education_step::before { left: 8px; width: 20px; height: 20px; border-width: 3px; }
+    .experience_date_badge, .education_date_badge { position: static; display: inline-block; margin-bottom: 15px; left: auto; min-width: auto; }
+    .experience_content, .education_content { padding: 20px; }
+    .experience_step:hover .experience_content, .education_step:hover .education_content { transform: translateX(0); }
 }
 </style>
-<!--[if lt IE 9]> <script type="text/javascript" src="js/modernizr.custom.js"></script> <![endif]-->
-<!-- /STYLES -->
-
 </head>
 
-<body class="dark"> <!-- DARK MODE ENABLED -->
+<body class="dark"> <div id="preloader">
+        <div class="loader_line"></div>
+    </div>
+    <div class="grax_tm_all_wrap" data-magic-cursor="" data-color="crimson">
 
-	<!-- PRELOADER -->
-	<div id="preloader">
-		<div class="loader_line"></div>
-	</div>
-	<!-- /PRELOADER -->
+    <div class="grax_tm_settings">
+        <div class="icon">
+            <img class="svg" src="img/svg/setting.svg" alt="" />
+            <a class="link" href="#"></a>
+        </div>
+        <div class="wrapper">
+            <ul class="direction">
+                <li><a class="light" href="#"><img class="svg" src="img/svg/weather.svg" alt=" /"></a></li>
+                <li><a class="active dark" href="#"><img class="svg" src="img/svg/islam.svg" alt=" /"></a></li>
+            </ul>
+            <span class="title">Unlimited Colors</span>
+            <ul class="colors">
+                <li><a class="blue" href="#"></a></li>
+                <li><a class="green" href="#"></a></li>
+                <li><a class="brown" href="#"></a></li>
+                <li><a class="pink" href="#"></a></li>
+                <li><a class="orange" href="#"></a></li>
+                <li class="bl"><a class="black" href="#"></a></li>
+                <li class="wh"><a class="white" href="#"></a></li>
+                <li><a class="purple" href="#"></a></li>
+                <li><a class="sky" href="#"></a></li>
+                <li><a class="cadetBlue" href="#"></a></li>
+                <li><a class="crimson" href="#"></a></li>
+                <li><a class="olive" href="#"></a></li>
+                <li><a class="red" href="#"></a></li>
+            </ul>
+            <span class="title">Magic Cursor</span>
+            <ul class="cursor">
+                <li><a class="showme show" href="#"></a></li>
+                <li><a class="hide" href="#"><img class="svg" src="img/svg/arrow.svg" alt="" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grax_tm_topbar">
+        <div class="container">
+            <div class="topbar_inner">
+                <div class="logo"></div>
+                <div class="menu">
+                    <ul class="anchor_nav">
+                        <li class="current"><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_mobile_menu">
+        <div class="topbar_inner">
+            <div class="container bigger">
+                <div class="topbar_in">
+                    <div class="logo"></div>
+                    <div class="my_trigger">
+                        <div class="hamburger hamburger--collapse-r">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="container">
+                <div class="dropdown_inner">
+                    <ul class="anchor_nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_hero" id="home">
+        <div class="container">
+            <div class="hero_content_wrapper">
 
-<!-- WRAPPER ALL -->
-<div class="grax_tm_all_wrap" data-magic-cursor="" data-color="crimson">
+                <div class="gauntlet_tech_container">
+                    <div class="gauntlet_core">
+                        <div class="gauntlet_pulse"></div>
+                        <img src="img/slider/Infinity-Gauntlet-Free-PNG-Image.png" alt="Gauntlet" class="gauntlet_img_hero">
+                    </div>
 
-	<!-- MAGIC CURSOR VALUES: "", hide -->
-	<!-- COLOR VALUES: blue, green, brown, pink, orange, black, white, purple, sky, cadetBlue, crimson, olive, red -->
+                    <div class="spin_wrapper">
+                        <div class="orbit_stone stone_1" title="Python">
+                            <i class="devicon-python-plain colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_2" title="C++">
+                            <i class="devicon-cplusplus-plain colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_3" title="AWS">
+                            <i class="devicon-amazonwebservices-original colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_4" title="Docker">
+                            <i class="devicon-docker-plain colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_5" title="PostgreSQL">
+                            <i class="devicon-postgresql-plain colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_6" title="React">
+                            <i class="devicon-react-original colored"></i>
+                        </div>
+                        <div class="orbit_stone stone_7" title="AI/ML">
+                            <i class="devicon-tensorflow-original colored"></i>
+                        </div>
+                    </div>
+                </div>
 
-	<!-- SETTINGS -->
-	<div class="grax_tm_settings">
-		<div class="icon">
-			<img class="svg" src="img/svg/setting.svg" alt="" />
-			<a class="link" href="#"></a>
-		</div>
-		<div class="wrapper">
-			<ul class="direction">
-				<li><a class="light" href="#"><img class="svg" src="img/svg/weather.svg" alt=" /"></a></li>
-				<li><a class="active dark" href="#"><img class="svg" src="img/svg/islam.svg" alt=" /"></a></li>
-			</ul>
-			<span class="title">Unlimited Colors</span>
-			<ul class="colors">
-				<li><a class="blue" href="#"></a></li>
-				<li><a class="green" href="#"></a></li>
-				<li><a class="brown" href="#"></a></li>
-				<li><a class="pink" href="#"></a></li>
-				<li><a class="orange" href="#"></a></li>
-				<li class="bl"><a class="black" href="#"></a></li>
-				<li class="wh"><a class="white" href="#"></a></li>
-				<li><a class="purple" href="#"></a></li>
-				<li><a class="sky" href="#"></a></li>
-				<li><a class="cadetBlue" href="#"></a></li>
-				<li><a class="crimson" href="#"></a></li>
-				<li><a class="olive" href="#"></a></li>
-				<li><a class="red" href="#"></a></li>
-			</ul>
-			<span class="title">Magic Cursor</span>
-			<ul class="cursor">
-				<li><a class="showme show" href="#"></a></li>
-				<li><a class="hide" href="#"><img class="svg" src="img/svg/arrow.svg" alt="" /></a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- /SETTINGS -->
+                <div class="hero_details">
+                    <span class="sub_hero" style="font-size: large;">Raymond Frimpong Amoateng</span>
+                    <h1 class="name_hero" style="font-size: xx-large;">Building Scalable Intelligence.</h1>
+                    <span class="job_hero">Software Engineer | AI & Distributed Systems</span>
+                </div>
 
-	<!-- MODALBOX NEWS -->
-	<div class="grax_tm_modalbox_news">
-		<div class="box_inner">
-			<div class="close">
-				<a href="#"><img class="svg" src="img/svg/cancel.svg" alt="" /></a>
-			</div>
-			<div class="description_wrap scrollable">
-			</div>
-		</div>
-	</div>
-	<!-- /MODALBOX NEWS -->
+            </div>
 
-	<!-- TOPBAR -->
-	<div class="grax_tm_topbar">
-		<div class="container">
-			<div class="topbar_inner">
-				<div class="logo">
-				</div>
-				<div class="menu">
-					<ul class="anchor_nav">
-						<li class="current"><a href="#home">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#experience">Experience</a></li>
-						<li><a href="#education">Education</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /TOPBAR -->
+            <div class="grax_tm_down" data-skin="light" style="margin-top: 50px;">
+                <div class="line_wrapper">
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section" id="about">
+        <div class="grax_tm_about">
+            <div class="container">
+                <div class="about_inner">
+                    <div class="left wow fadeInLeft" data-wow-duration="1.5s">
+                        <div class="image parallax" data-relative-input="true">
+                            <img src="img/placeholders/3-4.jpg" alt="" />
+                            <div class="main layer" data-img-url="img/slider/IMG_2274.jpeg" data-depth="0.04"></div>
+                        </div>
+                    </div>
+                    <div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
+                        <div class="grax_tm_title_holder">
+                            <h3>About <span>Me</span></h3>
+                        </div>
+                        <div class="text">
+                        <p>I am a Software Engineer and Master's Student at the University of New Haven, specializing in <strong>Distributed Systems</strong> and <strong>Applied AI</strong>. My background bridges the gap between scalable cloud infrastructure and intelligent agent systems. I have successfully migrated monolithic architectures to microservices for 20,000+ users and am currently researching autonomous navigation agents in Unity/Python. I am actively seeking roles where I can apply rigorous engineering principles to solve complex data challenges.</p>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>Microservices</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>AWS / Cloud Native</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>Distributed Systems</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>DevOps & CI/CD</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>AI Agents (PyTorch)</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_inner">
+                                        <img class="svg" src="img/svg/checked.svg" alt="" />
+                                        <span>System Design</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
 
-	<!-- MOBILE MENU -->
-	<div class="grax_tm_mobile_menu">
-		<div class="topbar_inner">
-			<div class="container bigger">
-				<div class="topbar_in">
-					<div class="logo">
-					</div>
-					<div class="my_trigger">
-						<div class="hamburger hamburger--collapse-r">
-							<div class="hamburger-box">
-								<div class="hamburger-inner"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="dropdown">
-			<div class="container">
-				<div class="dropdown_inner">
-					<ul class="anchor_nav">
-						<li><a href="#home">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#experience">Experience</a></li>
-						<li><a href="#education">Education</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /MOBILE MENU -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section" id="portfolio">
+        <div class="grax_tm_portfolio">
+            <div class="container">
+                <div class="grax_tm_title_holder">
+                    <h3>My <span>Projects</span></h3>
+                </div>
+                <div class="portfolio_horizontal_scroll">
+                    <div class="portfolio_scroll_container">
 
-	<!-- HERO -->
-	<div class="grax_tm_hero" id="home">
-		<div class="bg">
-			<div class="image" style="background-image: url('img/slider/IMG_2686.jpg');"></div>
-			<div class="overlay"></div>
-		</div>
-		<div class="content">
-			<div class="container">
-				<div class="details" data-animation="rotate"> <!-- Animation Values: toTop, toRight, scale, rotate -->
-					<h4 class="fn_animation name">Raymond Frimpong Amoateng</h4>
-					<span class="fn_animation job">Applied AI/Software Development Engineer</span>
-				</div>
-				<div class="grax_tm_down" data-skin="light">
-					<div class="line_wrapper">
-						<div class="line"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /HERO -->
+                        <div class="portfolio_item featured" data-project="0">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/IslaMurtazaev/tower-defense-ai-agent" alt="Tower Defense AI Agent" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">Tower Defense AI Agent (RL)</h3>
+                                <p class="project_status">Advanced AI Research</p>
+                                <div class="project_description">
+                                    <p>Developed autonomous agents using <strong>Proximal Policy Optimization (PPO)</strong> and Approximate Q-Learning to defend Winterfell in a custom Pygame environment. Modeled a 24-dimensional feature space for enemy tracking.</p>
+                                    <p><strong>Metrics:</strong> Achieved <strong>11.5% victory rate</strong> with PPO (outperforming Q-Learning at 10.2%) in a high-difficulty stochastic environment. Optimized reward functions using Generalized Advantage Estimation (GAE) to stabilize training.</p>
+                                </div>
+                                <p class="project_tech_full">Python, PyTorch (PPO), TensorBoard, Pygame, A* Pathfinding</p>
+                                <a class="project_link" href="https://github.com/IslaMurtazaev/tower-defense-ai-agent" target="_blank">→</a>
+                            </div>
+                        </div>
 
-	<!-- ABOUT -->
-	<div class="grax_tm_section" id="about">
-		<div class="grax_tm_about">
-			<div class="container">
-				<div class="about_inner">
-					<div class="left wow fadeInLeft" data-wow-duration="1.5s">
-						<div class="image parallax" data-relative-input="true">
-							<img src="img/placeholders/3-4.jpg" alt="" />
-							<div class="main layer" data-img-url="img/slider/IMG_2274.jpeg" data-depth="0.04"></div>
-						</div>
-					</div>
-					<div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
-						<div class="grax_tm_title_holder">
-							<h3>About <span>Me</span></h3>
-						</div>
-						<div class="text">
-						<p>Software Development Engineer specializing in scalable web platforms and cloud automation. Delivered production solutions to 20K+ users, accelerated releases by 20%, and reduced query latency by 30% by pairing microservice architectures with Python (Django), React, and AWS. Currently pursuing an MS in Computer Science while applying AI/ML and DevOps rigor to craft resilient, user-centric experiences.</p>
-						</div>
-						<div class="list">
-							<ul>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>Web Development</span>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>Cloud Infrastructure (AWS)</span>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>API Development</span>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>DevOps & CI/CD</span>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>Applied AI</span>
-									</div>
-								</li>
-								<li>
-									<div class="list_inner">
-										<img class="svg" src="img/svg/checked.svg" alt="" />
-										<span>Unity Simulations</span>
-									</div>
-								</li>
-							</ul>
-						</div>
+                        <div class="portfolio_item" data-project="1">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/Magma4/IndoorSearchAgent" alt="Indoor AI Navigation Agent" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">Indoor AI Navigation</h3>
+                                <p class="project_status">Engineering Project</p>
+                                <div class="project_description">
+                                    <p>Engineered an intelligent indoor navigation system connecting a Unity visualization client to a Python inference backend. Implemented A* and Reinforcement Learning pathfinding.</p>
+                                    <p><strong>Key Engineering:</strong> Optimized node search to process 10,000+ graph nodes in under 50ms. Deployed inference model as a containerized microservice on AWS ECS.</p>
+                                </div>
+                                <p class="project_tech_full">Python (PyTorch), Unity (C#), AWS ECS, Docker, Graph Algorithms</p>
+                                <a class="project_link" href="https://github.com/Magma4/IndoorSearchAgent" target="_blank">→</a>
+                            </div>
+                        </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /ABOUT -->
+                        <div class="portfolio_item" data-project="3">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/Magma4/project-ml-microservice-kubernetes" alt="ML Microservice" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">Scalable ML Microservice</h3>
+                                <p class="project_status">Completed</p>
+                                <div class="project_description">
+                                    <p>Operationalized a Machine Learning API for housing price prediction. Focused on "ML Ops" by wrapping the model in a Flask API and containerizing it for high-availability deployment.</p>
+                                    <p>Deployed via Kubernetes cluster for automated orchestration and scaling. Integrated CircleCI pipeline to ensure 99.9% build reliability before deployment.</p>
+                                </div>
+                                <p class="project_tech_full">Kubernetes, Docker, Python (Flask), CircleCI, AWS, Scikit-learn</p>
+                                <a class="project_link" href="https://github.com/Magma4/project-ml-microservice-kubernetes" target="_blank">→</a>
+                            </div>
+                        </div>
 
-	<!-- PORTFOLIO -->
-	<div class="grax_tm_section" id="portfolio">
-		<div class="grax_tm_portfolio">
-			<div class="container">
-				<div class="grax_tm_title_holder">
-					<h3>My <span>Projects</span></h3>
-				</div>
-				<div class="portfolio_horizontal_scroll">
-					<div class="portfolio_scroll_container">
-						<div class="portfolio_item featured" data-project="1">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/IndoorSearchAgent" alt="Indoor AI Navigation Agent" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">Indoor AI Navigation Agent</h3>
-								<p class="project_status">In Progress</p>
-								<div class="project_description">
-									<p>Developing an intelligent indoor navigation system using AI algorithms and Unity game engine, enabling autonomous agents to navigate complex indoor environments with dynamic obstacle avoidance.</p>
-									<p>Implementing pathfinding algorithms and machine learning models to optimize navigation routes, reducing search time by 40% compared to traditional methods.</p>
-								</div>
-								<p class="project_tech_full">Unity, C#, AI/ML, Pathfinding Algorithms, Machine Learning</p>
-								<a class="project_link" href="https://github.com/Magma4/IndoorSearchAgent" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="2">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/certeasy" alt="CertEasy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">CertEasy</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Built an AI-powered certification prep platform that helps learners master complex subjects through interactive tools, personalized study plans, flashcards, quizzes, and collaborative learning rooms.</p>
-									<p>Developed with Django and REST APIs, integrating Stripe-based subscriptions, Google OAuth, and intelligent AI recommendations to drive user engagement and improve learning performance.</p>
-								</div>
-								<p class="project_tech_full">Django, REST APIs, Alpine.js, Tailwind CSS, Stripe, Google OAuth, PostgreSQL, AI/ML</p>
-								<a class="project_link" href="https://github.com/Magma4/certeasy" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="3">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/project-ml-microservice-kubernetes" alt="ML Microservice" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">ML Microservice</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Operationalized a Machine Learning Microservice API using a pre-trained sklearn model for predicting Boston housing prices. The Flask-based API serves predictions through REST endpoints and demonstrates production-ready ML deployment.</p>
-									<p>Containerized the application with Docker, deployed it using Kubernetes for automated container orchestration, and integrated CircleCI for continuous integration and testing. The microservice architecture enables scalable ML inference in production environments.</p>
-								</div>
-								<p class="project_tech_full">Python, Flask, scikit-learn, Docker, Kubernetes, CircleCI, REST API, Machine Learning</p>
-								<a class="project_link" href="https://github.com/Magma4/project-ml-microservice-kubernetes" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="4">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/ussd-ticketing" alt="Ticketing System" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">Ticketing System</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Developed a custom web-based help desk and ticketing solution for managing technical support requests, featuring a user-friendly portal for ticket submission and a comprehensive admin dashboard with analytics charts.</p>
-									<p>Implemented ticket categorization, user identification via Student/Staff ID, automated email notifications, and a robust admin interface for tracking, filtering, and resolving support tickets efficiently.</p>
-								</div>
-								<p class="project_tech_full">Django, Python, HTML, CSS, JavaScript, SQLite/PostgreSQL, Git</p>
-								<a class="project_link" href="https://github.com/Magma4/ussd-ticketing" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="5">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/Chat_app" alt="Real-Time Chat App" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">Samaritan: Real-Time Chat App</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Built Samaritan, a chat web application designed to connect people who need help with those willing to provide assistance. Features real-time messaging, secure user authentication, and seamless client-side routing for a smooth user experience.</p>
-									<p>Implemented Firebase integration for real-time data synchronization and authentication, using React Router for SPA navigation and UUID for unique identifier generation. The platform facilitates direct interaction between users seeking and offering support.</p>
-								</div>
-								<p class="project_tech_full">React, Firebase, react-router-dom, SASS, UUID, npm, Yarn</p>
-								<a class="project_link" href="https://github.com/Magma4/Chat_app" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="6">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://opengraph.githubassets.com/1/Magma4/ims-uits" alt="Inventory Management System" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">IMS-UITS: Inventory Management System</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Developed a comprehensive web-based Inventory Management System to track, manage, and report on technical assets, equipment, and consumables. Features detailed asset tracking, stock management with minimum level alerts, and issuance/return tracking.</p>
-									<p>Built with a Python backend and dynamic JavaScript frontend, the system provides real-time visibility into asset locations and statuses, generates reports on stock levels and asset depreciation, and includes secure user authentication for staff access control.</p>
-								</div>
-								<p class="project_tech_full">Python, Django/Flask, JavaScript, HTML, CSS, Database</p>
-								<a class="project_link" href="https://github.com/Magma4/ims-uits" target="_blank">→</a>
-							</div>
-						</div>
-						<div class="portfolio_item" data-project="7">
-							<div class="project_card">
-								<div class="github_preview">
-									<img src="https://image.thum.io/get/width/600/crop/600/https://excelsalodge.com/" alt="Excelsa Lodge Hotel Website" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
-								</div>
-								<h3 class="project_title">Excelsa Lodge Hotel Website</h3>
-								<p class="project_status">Completed</p>
-								<div class="project_description">
-									<p>Developed a comprehensive hotel booking website for Excelsa Lodge Hotel located in Adarko Jachie, Kumasi, Ghana. Features an interactive booking system with check-in/check-out functionality, room selection, and guest management.</p>
-									<p>Built with modern web technologies, the platform showcases room types (Standard Single, Double, Executive Gold/Silver, Deluxe, Twin, Family), hotel services (Wi-Fi, Restaurant, Room Service, Laundry, DSTV, Bar), customer reviews, and contact information for seamless guest experience.</p>
-								</div>
-								<p class="project_tech_full">HTML, CSS, JavaScript, PHP, Web Development, Booking System</p>
-								<a class="project_link" href="https://excelsalodge.com/" target="_blank">→</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /PORTFOLIO -->
+                        <div class="portfolio_item" data-project="2">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/Magma4/certeasy" alt="CertEasy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">CertEasy (SaaS Platform)</h3>
+                                <p class="project_status">Completed</p>
+                                <div class="project_description">
+                                    <p>Architected a certification prep SaaS platform. Integrated Stripe for subscription management and Google OAuth for secure identity management.</p>
+                                    <p>Designed a PostgreSQL schema to handle complex many-to-many relationships between users, quizzes, and study plans, ensuring data integrity under load.</p>
+                                </div>
+                                <p class="project_tech_full">Django, PostgreSQL, Redis, Stripe API, Docker, Tailwind</p>
+                                <a class="project_link" href="https://github.com/Magma4/certeasy" target="_blank">→</a>
+                            </div>
+                        </div>
 
-	<!-- SKILLS -->
-	<div class="grax_tm_section" id="skills">
-		<div class="grax_tm_progress_part">
-			<div class="container">
-				<div class="part_inner">
-					<div class="left wow fadeInLeft" data-wow-duration="1.5s">
-						<h3>My Technical <span>Expertise</span></h3>
-						<p>I possess strong skills in various development and programming technologies, consistently striving to deliver high-quality, cost-effective solutions.</p>
-					</div>
-					<div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
-						<div class="kioto_progress">
+                        <div class="portfolio_item" data-project="4">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/Magma4/ussd-ticketing" alt="Ticketing System" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">Enterprise Ticketing System</h3>
+                                <p class="project_status">Completed</p>
+                                <div class="project_description">
+                                    <p>Developed an internal help desk solution for university technical support. Features role-based access control (RBAC) and automated email dispatching via SMTP.</p>
+                                </div>
+                                <p class="project_tech_full">Django, SMTP, Celery (Async Tasks), PostgreSQL</p>
+                                <a class="project_link" href="https://github.com/Magma4/ussd-ticketing" target="_blank">→</a>
+                            </div>
+                        </div>
 
-							<div class="progress_inner" data-value="95">
-								<span><span class="label"><i class="skill-icon devicon-python-plain colored"></i>Python (Django, Flask)</span><span class="number">95%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label"><i class="skill-icon devicon-javascript-plain colored"></i><i class="skill-icon devicon-react-original colored"></i>JavaScript / React</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="96">
-								<span><span class="label"><i class="skill-icon devicon-git-plain colored"></i><i class="skill-icon devicon-github-original colored"></i>Git &amp; GitHub</span><span class="number">96%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="95">
-								<span><span class="label"><i class="skill-icon devicon-java-plain colored"></i>Java / JavaFX</span><span class="number">86%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label"><i class="skill-icon devicon-cplusplus-plain colored"></i>C/C++</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="88">
-								<span><span class="label"><i class="skill-icon devicon-csharp-plain colored"></i><i class="skill-icon devicon-unity-original colored"></i>C# / Unity</span><span class="number">88%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="90">
-								<span><span class="label"><i class="skill-icon devicon-mysql-plain colored"></i>SQL (Postgres, MySQL)</span><span class="number">90%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="85">
-								<span><span class="label"><i class="skill-icon devicon-amazonwebservices-original colored"></i>AWS / Cloud DevOps</span><span class="number">85%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-							<div class="progress_inner" data-value="80">
-								<span><span class="label"><i class="skill-icon devicon-pytorch-plain colored"></i>AI/ML (PyTorch, NLP)</span><span class="number">80%</span></span>
-								<div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /SKILLS -->
+                        <div class="portfolio_item" data-project="5">
+                            <div class="project_card">
+                                <div class="github_preview">
+                                    <img src="https://opengraph.githubassets.com/1/Magma4/Chat_app" alt="Real-Time Chat App" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';" />
+                                </div>
+                                <h3 class="project_title">Samaritan: Real-Time Chat</h3>
+                                <p class="project_status">Completed</p>
+                                <div class="project_description">
+                                    <p>Built a real-time messaging platform using Firebase Firestore for instant data syncing (WebSocket-like behavior). Handled state management for concurrent user sessions.</p>
+                                </div>
+                                <p class="project_tech_full">React, Firebase NoSQL, UUID, State Management</p>
+                                <a class="project_link" href="https://github.com/Magma4/Chat_app" target="_blank">→</a>
+                            </div>
+                        </div>
 
-	<!-- EXPERIENCE -->
-	<div class="grax_tm_section" id="experience">
-		<div class="grax_tm_about">
-			<div class="container">
-			<div class="grax_tm_title_holder">
-				<h3>Work <span>Experience</span></h3>
-			</div>
-			<div class="experience_timeline">
-				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
-					<div class="experience_date_badge">Oct 2021 – Dec 2024</div>
-					<div class="experience_content">
-						<h4>Senior ICT Assistant (Software Development Engineer)</h4>
-						<p class="company">University Information Technology Services  - Kwame Nkrumah University of Science and Technology (UITS-KNUST)</p>
-						<p class="location">Kumasi, Ghana</p>
-						<ul class="list_inner">
-							<li>Developed and deployed scalable web applications for 20K+ students using Python (Django) and React, reducing feature deployment time by 20% via modular design.</li>
-							<li>Worked on the backend and database of Transcript Request System that is used by thousands of students and alumni.</li>
-							<li>Optimized SQL queries with indexing and caching, cutting execution time by 30% for high-traffic systems, enhancing application speed and scalability.</li>
-							<li>Automated CI/CD pipelines using GitHub Actions, enabling 50% faster release cycles for critical university applications in a fast-paced environment.</li>
-							<li>Spearheaded migration from monolithic to microservices architecture, significantly improving system scalability and reducing server costs by 15%.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
-					<div class="experience_date_badge">Aug 2023 – Nov 2023</div>
-					<div class="experience_content">
-						<h4>Software Developer Intern</h4>
-						<p class="company">EXRX.NET (Remote) – Fitness Tech Startup</p>
-						<p class="location">Remote</p>
-						<ul class="list_inner">
-							<li>Built and debugged Flutter-based fitness apps and PHP Laravel backend services powering personalized workout experiences for thousands of users.</li>
-							<li>Wrote automated test suites covering critical backend logic, reducing post-release bugs by 40%.</li>
-							<li>Participated in weekly code reviews with senior developers, providing peer feedback and improving team code quality by 30%.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s">
-					<div class="experience_date_badge">Aug 2020 – Sep 2021</div>
-					<div class="experience_content">
-						<h4>User Support Engineer</h4>
-						<p class="company">University Information Technology Services  - Kwame Nkrumah University of Science and Technology (UITS-KNUST)</p>
-						<p class="location">Kumasi, Ghana</p>
-						<ul class="list_inner">
-							<li>Provided comprehensive technical support to over 500 university students and staff, diagnosing and resolving software, hardware, and network connectivity issues.</li>
-							<li>Managed and maintained 2+ computer labs, including hardware installation, software deployment, and network configuration.</li>
-							<li>Documented troubleshooting procedures and common solutions, contributing to a knowledge base that enhanced self-service options.</li>
-							<li>Collaborated with development teams to escalate complex technical issues and provide user feedback.</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
-	<!-- /EXPERIENCE -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section" id="skills">
+        <div class="grax_tm_progress_part">
+            <div class="container">
+                <div class="part_inner">
+                    <div class="left wow fadeInLeft" data-wow-duration="1.5s">
+                        <h3>Technical <span>Stack</span></h3>
+                        <p>Focused on high-performance backend systems, cloud orchestration, and applied machine learning pipelines.</p>
+                    </div>
+                    <div class="right wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
+                        <div class="kioto_progress">
 
-	<!-- EDUCATION -->
-	<div class="grax_tm_section" id="education">
-		<div class="grax_tm_about">
-			<div class="container">
-			<div class="grax_tm_title_holder">
-				<h3>My <span>Education</span></h3>
-			</div>
-			<div class="education_timeline">
-				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
-					<div class="education_date_badge">Jan 2025 – Dec 2026</div>
-					<div class="education_content">
-						<h4>MS. Computer Science</h4>
-						<p class="institution">University of New Haven</p>
-						<p class="location">West Haven, CT, USA</p>
-						<p>Grade: 4.0/4.0</p>
-						<p>Concentration in AI/ML, distributed systems, and secure software engineering with advanced coursework in Python, Java, C++, Objective-C, Linux, and applied research across AI search, reinforcement learning, and distributed databases.</p>
-					</div>
-				</div>
+                            <div class="progress_inner" data-value="95">
+                                <span><span class="label"><i class="skill-icon devicon-python-plain colored"></i>Python (System Design/AI)</span><span class="number">Advanced</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="90">
+                                <span><span class="label"><i class="skill-icon devicon-cplusplus-plain colored"></i>C++ (Algorithms)</span><span class="number">High</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="90">
+                                <span><span class="label"><i class="skill-icon devicon-amazonwebservices-original colored"></i>AWS / Kubernetes / Docker</span><span class="number">High</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                             <div class="progress_inner" data-value="85">
+                                <span><span class="label"><i class="skill-icon devicon-postgresql-plain colored"></i>SQL & Database Design</span><span class="number">High</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="88">
+                                <span><span class="label"><i class="skill-icon devicon-react-original colored"></i>React / TypeScript</span><span class="number">Proficient</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section" id="experience">
+        <div class="grax_tm_about">
+            <div class="container">
+            <div class="grax_tm_title_holder">
+                <h3>Work <span>Experience</span></h3>
+            </div>
+            <div class="experience_timeline">
+                <div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
+                    <div class="experience_date_badge">Oct 2021 – Dec 2024</div>
+                    <div class="experience_content">
+                        <h4>Software Engineer (Backend & Infrastructure)</h4>
+                        <p class="company">UITS - Kwame Nkrumah University of Science and Technology</p>
+                        <p class="location">Kumasi, Ghana</p>
+                        <ul class="list_inner">
+                            <li><strong>Monolith to Microservices:</strong> Spearheaded the migration of the university student portal to a microservices architecture, reducing server dependency and cutting cloud costs by 15%.</li>
+                            <li><strong>High-Concurrency Scaling:</strong> Engineered backend systems supporting 20,000+ Daily Active Users (DAU). Reduced query latency by 30% (200ms to 140ms) by implementing Redis caching and optimizing PostgreSQL indexing strategies.</li>
+                            <li><strong>DevOps Automation:</strong> Built CI/CD pipelines using GitHub Actions to automate testing and deployment, accelerating release cycles by 50% for critical academic applications.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
+                    <div class="experience_date_badge">Aug 2023 – Nov 2023</div>
+                    <div class="experience_content">
+                        <h4>Software Developer Intern</h4>
+                        <p class="company">EXRX.NET (Remote)</p>
+                        <p class="location">Remote</p>
+                        <ul class="list_inner">
+                            <li><strong>API Development:</strong> Optimized PHP Laravel backend services powering personalized workout algorithms.</li>
+                            <li><strong>Quality Assurance:</strong> Wrote automated test suites covering critical business logic, achieving 40% reduction in post-release bugs.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s">
+                    <div class="experience_date_badge">Aug 2020 – Sep 2021</div>
+                    <div class="experience_content">
+                        <h4>User Support Engineer</h4>
+                        <p class="company">UITS - KNUST</p>
+                        <p class="location">Kumasi, Ghana</p>
+                        <ul class="list_inner">
+                            <li>Provided technical resolution for 500+ university staff, documenting troubleshooting protocols to create a knowledge base for self-service support.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section" id="education">
+        <div class="grax_tm_about">
+            <div class="container">
+            <div class="grax_tm_title_holder">
+                <h3>My <span>Education</span></h3>
+            </div>
+            <div class="education_timeline">
+                <div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s">
+                    <div class="education_date_badge">Jan 2025 – Present</div>
+                    <div class="education_content">
+                        <h4>MS. Computer Science</h4>
+                        <p class="institution">University of New Haven</p>
+                        <p class="location">West Haven, CT, USA</p>
+                        <p>Grade: 4.0/4.0</p>
+                        <p><strong>Concentration:</strong> Artificial Intelligence & Distributed Systems.</p>
+                        <p><strong>Relevant Coursework:</strong> Advanced Analysis of Algorithms, Database Management Systems, AI Search Strategies, Secure Software Engineering.</p>
+                    </div>
+                </div>
 
-				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
-					<div class="education_date_badge">Dec 2023 – Sep 2024</div>
-					<div class="education_content">
-						<h4>Associate Python Developer</h4>
-						<p class="institution">DataCamp</p>
-						<p>Completed DataCamp's Associate Python Developer track covering Python fundamentals, data structures, control flow, functional programming, OOP, and regular expressions with extensive hands-on labs.</p>
-						<p><strong>Skills:</strong> Lambda Expressions · OOP · Regular Expressions · Python Toolbox</p>
-					</div>
-				</div>
+                <div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
+                    <div class="education_date_badge">Certifications</div>
+                    <div class="education_content">
+                        <h4>Technical Certifications</h4>
+                        <p class="institution">Various</p>
+                        <ul class="list_inner">
+                            <li><strong>AWS Certified Cloud Practitioner</strong> (Oct 2024)</li>
+                            <li><strong>Oracle Cloud Infrastructure Foundations Associate</strong> (Jul 2025)</li>
+                            <li><strong>NVIDIA: Building LLM Applications With Prompt Engineering</strong> (Oct 2025)</li>
+                            <li><strong>HackerRank Software Engineer</strong> (Nov 2025)</li>
+                        </ul>
+                    </div>
+                </div>
 
-				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
-					<div class="education_date_badge">Feb 2022 – May 2023</div>
-					<div class="education_content">
-						<h4>Software Engineering</h4>
-						<p class="institution">ALX</p>
-						<p>Intensive full-stack engineering program building production-grade apps (e.g., Samaritan chat platform) with C, Python, JavaScript, React, and Git-based workflows.</p>
-						<p><strong>Skills:</strong> Python · JavaScript · React.js · Databases · Git/GitHub</p>
-					</div>
-				</div>
-
-				<div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
-					<div class="education_date_badge">May 2022 – Aug 2022</div>
-					<div class="education_content">
-						<h4>Nanodegree Program, Cloud DevOps Engineer</h4>
-						<p class="institution">Udacity</p>
-						<p>Delivered AWS DevOps projects including static site deployments, HA architectures with CloudFormation, automated CI/CD pipelines, and containerized ML microservices.</p>
-						<p><strong>Skills:</strong> AWS · CloudFormation · Docker · Kubernetes · GitOps · CircleCI</p>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
-	<!-- /EDUCATION -->
-
-	<!-- TALK -->
-	<div class="grax_tm_section">
-		<div class="grax_tm_talk">
-			<div class="container">
-				<div class="talk_inner">
-					<div class="text wow fadeInLeft" data-wow-duration="1.5s">
-						<h4><span>Open to internships, open-source, and project collaborations</span></h4>
-					</div>
-					<div class="button wow fadeInLeft anchor" data-wow-duration="1.5s" data-wow-delay=".2s">
-						<a href="#contact">Contact Me</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /TALK -->
-
-	<!-- NEWS -->
+                <div class="education_step wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s">
+                    <div class="education_date_badge">2023</div>
+                    <div class="education_content">
+                        <h4>Software Engineering</h4>
+                        <p class="institution">ALX</p>
+                        <p>Intensive project-based curriculum focusing on C programming, Shell scripting, and Full Stack Web Development.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section">
+        <div class="grax_tm_talk">
+            <div class="container">
+                <div class="talk_inner">
+                    <div class="text wow fadeInLeft" data-wow-duration="1.5s">
+                        <h4><span>Interested in Distributed Systems or AI? Let's collaborate.</span></h4>
+                    </div>
+                    <div class="button wow fadeInLeft anchor" data-wow-duration="1.5s" data-wow-delay=".2s">
+                        <a href="#contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NEWS -->
 	<div class="grax_tm_section" id="news">
 		<div class="grax_tm_news">
 			<div class="container">
@@ -1461,154 +1074,150 @@ body:not(.dark) .education_step::before {
 		</div>
 	</div>
 	<!-- /NEWS -->
-
-	<!-- CONTACT -->
-	<div class="grax_tm_contact" id="contact">
-		<div class="container">
-			<div class="grax_tm_title_holder">
-				<h3>Get in <span>Touch</span></h3>
-			</div>
-			<div class="contact_inner">
-				<div class="left wow fadeInLeft" data-wow-duration="1s">
-					<div class="text">
-						<p>Feel free to reach out to me through the form below, or connect via my contact details. I'm available for discussions regarding new projects, collaborations, or any inquiries.</p>
-					</div>
-					<div class="info_list">
-						<ul>
-							<li>
-								<div class="list_inner">
-									<img class="svg" src="img/svg/location.svg" alt="" />
-									<p><span class="first">Address:</span><span class="second">Connecticut, USA</span></p>
-								</div>
-							</li>
-							<li>
-								<div class="list_inner">
-									<img class="svg" src="img/svg/social/dribbble.svg" alt="GitHub" />
-									<p><span class="first">GitHub:</span><span class="second"><a href="https://github.com/magma4" target="_blank">github.com/magma4</a></span></p>
-								</div>
-							</li>
-							<li>
-								<div class="list_inner">
-									<img class="svg" src="img/svg/social/linkedin.svg" alt="LinkedIn" />
-									<p><span class="first">LinkedIn:</span><span class="second"><a href="https://www.linkedin.com/in/raymond-frimpong" target="_blank">linkedin.com/in/raymond-frimpong</a></span></p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
-					<div class="fields">
-						<form action="https://formsubmit.co/ajax/raymondamoateng@gmail.com" method="POST" class="contact_form" id="contact_form">
-							<div class="returnmessage" role="alert"></div>
-							<div class="empty_notice"><span>Please Fill Required Fields</span></div>
-							<div class="first">
-								<ul>
-									<li>
-										<input id="name" name="name" type="text" placeholder="Name" required>
-									</li>
-									<li>
-										<input id="email" name="email" type="email" placeholder="Email" required>
-									</li>
-								</ul>
-							</div>
-							<div class="last">
-								<textarea id="message" name="message" placeholder="Message" required></textarea>
-							</div>
-							<div class="grax_tm_button">
-								<button id="send_message" type="submit">Send Message</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /CONTACT -->
-
-	<!-- COPYRIGHT -->
-	<div class="grax_tm_section">
-		<div class="grax_tm_copyright">
-			<div class="my_wave">
+    <div class="grax_tm_contact" id="contact">
+        <div class="container">
+            <div class="grax_tm_title_holder">
+                <h3>Get in <span>Touch</span></h3>
+            </div>
+            <div class="contact_inner">
+                <div class="left wow fadeInLeft" data-wow-duration="1s">
+                    <div class="text">
+                        <p>I am open to Summer 2026 Internships and Full-time opportunities in Software Engineering, Backend Development, and AI. Feel free to reach out.</p>
+                    </div>
+                    <div class="info_list">
+                        <ul>
+                            <li>
+                                <div class="list_inner">
+                                    <img class="svg" src="img/svg/location.svg" alt="" />
+                                    <p><span class="first">Location:</span><span class="second">Connecticut, USA</span></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list_inner">
+                                    <img class="svg" src="img/svg/social/dribbble.svg" alt="GitHub" />
+                                    <p><span class="first">GitHub:</span><span class="second"><a href="https://github.com/magma4" target="_blank">github.com/magma4</a></span></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list_inner">
+                                    <img class="svg" src="img/svg/social/linkedin.svg" alt="LinkedIn" />
+                                    <p><span class="first">LinkedIn:</span><span class="second"><a href="https://www.linkedin.com/in/raymond-frimpong" target="_blank">linkedin.com/in/raymond-frimpong</a></span></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="fields">
+                        <form action="https://formsubmit.co/ajax/raymondamoateng@gmail.com" method="POST" class="contact_form" id="contact_form">
+                            <div class="returnmessage" role="alert"></div>
+                            <div class="empty_notice"><span>Please Fill Required Fields</span></div>
+                            <div class="first">
+                                <ul>
+                                    <li>
+                                        <input id="name" name="name" type="text" placeholder="Name" required>
+                                    </li>
+                                    <li>
+                                        <input id="email" name="email" type="email" placeholder="Email" required>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="last">
+                                <textarea id="message" name="message" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="grax_tm_button">
+                                <button id="send_message" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grax_tm_section">
+        <div class="grax_tm_copyright">
+            <div class="my_wave">
                 <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <defs></defs>
                     <path id="wave_img" data-color="#247c6d" d="M 0 185.609 C 317.16666666666663 118.136 317.16666666666663 118.136 634.3333333333333 151.87 C 951.4999999999999 185.609 951.4999999999999 185.609 1268.6666666666665 116.402 C 1585.833333333333 47.195 1585.833333333333 47.195 1903 131.925 L 1903 507 L 0 507 Z" fill="#247c6d"></path>
                 </svg>
             </div>
-			<div class="container">
-				<div class="copyright_inner">
-					<div class="logo wow fadeInLeft" data-wow-duration="1s">
-					</div>
-					<div class="social wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
-						<ul>
-							<li><a href="https://www.linkedin.com/in/raymond-frimpong" target="_blank"><img class="svg" src="img/svg/social/linkedin.svg" alt="LinkedIn" ></a></li>
-							<li><a href="https://github.com/magma4" target="_blank"><img class="svg" src="img/svg/social/dribbble.svg" alt="GitHub" ></a></li>
-							<!-- You can download another svg icons from here for free https://www.flaticon.com -->
-						</ul>
-					</div>
-					<div class="copy wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">
-						<p>&copy; Copyright <span id="copyright-year">2024</span> by Raymond Frimpong Amoateng</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /COPYRIGHT -->
-
-	<!-- CURSOR -->
-	<div class="mouse-cursor cursor-outer"></div>
+            <div class="container">
+                <div class="copyright_inner">
+                    <div class="logo wow fadeInLeft" data-wow-duration="1s">
+                    </div>
+                    <div class="social wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/raymond-frimpong" target="_blank"><img class="svg" src="img/svg/social/linkedin.svg" alt="LinkedIn" ></a></li>
+                            <li><a href="https://github.com/magma4" target="_blank"><img class="svg" src="img/svg/social/dribbble.svg" alt="GitHub" ></a></li>
+                        </ul>
+                    </div>
+                    <div class="copy wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">
+                        <p>&copy; Copyright <span id="copyright-year">2025</span> by Raymond Frimpong Amoateng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mouse-cursor cursor-outer"></div>
     <div class="mouse-cursor cursor-inner"></div>
-	<!-- /CURSOR -->
-
-	<!-- START: Page Progress -->
-	<div class="progressbar">
-		<a href="#"><span class="text">To Top</span></a>
-		<span class="line"></span>
-	</div>
-	<!-- END: Page Progress -->
-
-</div>
-<!-- / WRAPPER ALL -->
-
+    <div class="progressbar">
+        <a href="#"><span class="text">To Top</span></a>
+        <span class="line"></span>
+    </div>
+    </div>
 <div class="contact_toast" id="contact_toast" role="alert" aria-live="polite">Message sent. Thank you for reaching out, I'll respond shortly.</div>
 
-<!-- SCRIPTS -->
 <script src="js/jquery.js"></script>
-<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 <script src="js/plugins.js"></script>
 <script src="js/init.js"></script>
 <script>
-	// Portfolio Horizontal Scroll - Featured Project Toggle
-	jQuery(document).ready(function($) {
-		// Disable glitch effect
-		if ($.fn.mgGlitch) {
-			$('.glitch').mgGlitch({ destroy: true });
-		}
+    // Portfolio Horizontal Scroll - Featured Project Toggle
+    jQuery(document).ready(function($) {
+        if ($.fn.mgGlitch) {
+            $('.glitch').mgGlitch({ destroy: true });
+        }
 
-		$('.portfolio_item').on('click', function() {
-			// Remove featured class from all items
-			$('.portfolio_item').removeClass('featured');
-			// Add featured class to clicked item
-			$(this).addClass('featured');
+        $('.portfolio_item').on('click', function() {
+            $('.portfolio_item').removeClass('featured');
+            $(this).addClass('featured');
+            var container = $('.portfolio_horizontal_scroll');
+            var item = $(this);
+            var containerWidth = container.width();
+            var itemOffset = item.offset().left - container.offset().left;
+            var itemWidth = item.outerWidth();
+            var scrollLeft = container.scrollLeft() + itemOffset - (containerWidth / 2) + (itemWidth / 2);
 
-			// Scroll to center the featured item
-			var container = $('.portfolio_horizontal_scroll');
-			var item = $(this);
-			var containerWidth = container.width();
-			var itemOffset = item.offset().left - container.offset().left;
-			var itemWidth = item.outerWidth();
-			var scrollLeft = container.scrollLeft() + itemOffset - (containerWidth / 2) + (itemWidth / 2);
+            container.animate({
+                scrollLeft: scrollLeft
+            }, 500);
+        });
 
-			container.animate({
-				scrollLeft: scrollLeft
-			}, 500);
-		});
+        var currentYear = new Date().getFullYear();
+        $('#copyright-year').text(currentYear);
 
-		// Update copyright year dynamically
-		var currentYear = new Date().getFullYear();
-		$('#copyright-year').text(currentYear);
-	});
+        // Trigger text animations on page load
+        setTimeout(function() {
+            $('.hero_details').css({
+                'opacity': '1',
+                'transform': 'translateX(0)'
+            });
+
+            setTimeout(function() {
+                $('.name_hero').css({
+                    'opacity': '1',
+                    'transform': 'translateY(0)'
+                });
+            }, 300);
+
+            setTimeout(function() {
+                $('.job_hero').css({
+                    'opacity': '1',
+                    'transform': 'translateY(0)'
+                });
+            }, 700);
+        }, 500);
+    });
 </script>
-<!-- /SCRIPTS -->
-
 </body>
 </html>

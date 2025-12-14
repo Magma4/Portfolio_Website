@@ -55,6 +55,27 @@ body.dark .grax_tm_topbar.animate{
 body.dark .grax_tm_topbar .menu ul li a{
 	color: #fff;
 }
+
+/* Light mode navigation - make links visible */
+body:not(.dark) .grax_tm_topbar .menu ul li a{
+	color: #333;
+}
+
+body:not(.dark) .grax_tm_topbar .menu ul li.current a{
+	color: #e54b4b;
+}
+
+body:not(.dark) .grax_tm_topbar .menu ul li a:hover{
+	color: #e54b4b;
+}
+
+body:not(.dark) .grax_tm_topbar.animate .menu ul li a{
+	color: #000;
+}
+
+body:not(.dark) .grax_tm_topbar.animate .menu ul li.current a{
+	color: #e54b4b;
+}
 body.dark .grax_tm_about{
 	background-color: transparent;
 }
@@ -129,4 +150,89 @@ body.dark .progress_inner .background{
 }
 body.dark .progress_inner > span{
 	color: #fff;
+}
+
+/* Light mode base styles - ensure text is visible */
+body:not(.dark) .grax_tm_topbar{
+	background-color: transparent;
+}
+
+body:not(.dark) .grax_tm_topbar.opened{
+	background-color: transparent;
+}
+
+/* Ensure navigation is visible in light mode when topbar is not scrolled */
+body:not(.dark) .grax_tm_topbar:not(.animate) .menu ul li a{
+	color: #333;
+	text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Light mode experience and education timeline styles */
+body:not(.dark) .experience_timeline::before,
+body:not(.dark) .education_timeline::before {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+body:not(.dark) .experience_content,
+body:not(.dark) .education_content {
+	background: rgba(0, 0, 0, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark) .experience_step:hover .experience_content,
+body:not(.dark) .education_step:hover .education_content {
+	background: rgba(0, 0, 0, 0.05);
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+body:not(.dark) .experience_date_badge,
+body:not(.dark) .education_date_badge {
+	background: rgba(229, 75, 75, 0.15);
+	border: 1px solid rgba(229, 75, 75, 0.4);
+	color: #e54b4b;
+}
+
+body:not(.dark) .experience_content h4,
+body:not(.dark) .education_content h4 {
+	color: #1a1a2e;
+}
+
+body:not(.dark) .experience_content .company,
+body:not(.dark) .education_content .institution {
+	color: #e54b4b;
+}
+
+body:not(.dark) .experience_content .location,
+body:not(.dark) .education_content .location {
+	color: rgba(26, 26, 46, 0.7);
+}
+
+body:not(.dark) .experience_content .list_inner li,
+body:not(.dark) .education_content p {
+	color: rgba(26, 26, 46, 0.9);
+}
+
+body:not(.dark) .experience_content .list_inner li::before {
+	color: #e54b4b;
+}
+
+body:not(.dark) .experience_step::before,
+body:not(.dark) .education_step::before {
+	background: #fff;
+	border: 4px solid #e54b4b;
+	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+body:not(.dark) .experience_step:hover::before,
+body:not(.dark) .education_step:hover::before {
+	box-shadow: 0 0 0 8px rgba(229, 75, 75, 0.15);
+}
+
+/* Light mode project link arrows */
+body:not(.dark) .project_link {
+	color: #1a1a2e;
+}
+
+body:not(.dark) .project_link:hover {
+	color: #e54b4b;
 }
